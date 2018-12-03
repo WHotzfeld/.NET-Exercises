@@ -138,7 +138,7 @@ namespace Iteration_Array_App
             //    if (TMNT[i] == favTurtle)
             //    {
             //        Console.WriteLine(TMNT.IndexOf(favTurtle));
-            //        Console.ReadLine();
+            //        break;
             //    }
             //}
             //bool favFound = TMNT.Contains(favTurtle) == true;
