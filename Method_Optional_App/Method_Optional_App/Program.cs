@@ -12,28 +12,27 @@ namespace Method_Optional_App
             //STEP 3.) Asked for user input of one integer with the option for a second integer.
             Console.WriteLine("Please type an integer you would like magic performed on, then press \"Enter.\"");
             int firstInput = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("If you would like a second integer to be a part of the magic, type it here and press \"Enter.\"");
-            Console.WriteLine("If you are fine with just one integer and have no other integer, simply press \"Enter\" without input.");
+            Console.WriteLine("If you would like a second integer to be a part of the magic, type it here and press \"Enter.\" " +
+                "\n If you are fine with just one integer and have no other integer, simply press \"Enter\" without input.");
 
-            //NOTE: I have a default for "secondInput" already set in the method, but ran into trouble when asking for input.
-            // My original code only had the line within the "try" (the Convert...ReadLine), but I hit a format error whenever
-            // the user didn't enter anything. This is the first thing I tried that worked. I'm sure there's a simpler way to
-            // handle it, but it's beyond me! At any rate, the try/catch accomplishes the goal of the app.
-            int secondInput = 0;
-            try
-            {
-                secondInput = Convert.ToInt32(Console.ReadLine());
-            }
-            catch(FormatException)
-            {
-                secondInput = 0;
-            }
+
+            //NOTE: Changed try/catch to if/else with a TryParse statement as the boolean factor in determining string-to-int conversion.
+            // Works well and looks WAY cleaner.
+            bool ifInteger = Int32.TryParse(Console.ReadLine(), out int secondInput);
+
             //STEP 4.) Called the "Calc" method, allowing for one or two separate integers.
-            Console.WriteLine("Wowwy zowwy! I did magic things and now your integer(s) have become: " + Magic.Calc(firstInput, secondInput) + "!");
+            if (ifInteger == true)
+            {
+                Console.WriteLine("Wowwy zowwy! I did magic things and now your integers have become: " + Magic.Calc(firstInput, secondInput) + "!");
+            }
+            else
+            {
+                Console.WriteLine("Wowwy zowwy! I did magic things and now your integer has become: " + Magic.Calc(firstInput, secondInput) + "!");
+            }
             
             Console.ReadLine();
 
-            //STEP 5.) Tried several integer combinations, as well as only inputting one integer. Seems to work well.
+            //STEP 5.) Tried several integer combinations, as well as only inputting one integer. Works well in each case.
         }
     }
 }
