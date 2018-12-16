@@ -11,9 +11,7 @@ namespace Abstract_App
         static void Main(string[] args)
         {
             //STEP 5.) Instantiated new "employee" object, named properties, called SayName() method.
-            Employee employee = new Employee();
-            employee.FirstName = "Sample";
-            employee.LastName = "Student";
+            Employee employee = new Employee { FirstName = "Sample", LastName = "Student" };
 
             employee.SayName();
             Console.ReadLine();
