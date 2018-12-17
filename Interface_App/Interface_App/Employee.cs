@@ -6,18 +6,39 @@ using System.Threading.Tasks;
 
 namespace Interface_App
 {
-    //STEP 2.) Employee class now inherets both "Person" class and "IQuittable" interface properties.
     public class Employee : Person, IQuittable
     {
+        public int Id { get; set; }
+
         public override void SayName()
         {
             Console.WriteLine(FirstName + " " + LastName);
         }
-
-        //STEP 2 (cont.) Implemented Quit() method.
+        
         void IQuittable.Quit(Employee employee)
         {
             employee.LastName = employee.LastName + " is a quitter";
+        }
+
+        //DRILL p.129, STEP 1.) Overloaded == and != operators to allow for comparison of Employee Id numbers.
+        public static bool operator== (Employee employee, Employee someGuy)
+        {
+            bool idMatch = false;
+            if (employee.Id == someGuy.Id)
+            {
+                idMatch = true;
+            }
+            return idMatch;
+        }
+
+        public static bool operator!= (Employee employee, Employee someGuy)
+        {
+            bool idDiff = false;
+            if (employee.Id != someGuy.Id)
+            {
+                idDiff = true;
+            }
+            return idDiff;
         }
     }
 }

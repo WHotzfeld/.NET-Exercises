@@ -10,13 +10,19 @@ namespace Interface_App
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee { FirstName = "Sample", LastName = "Student" };
-
-            //STEP 3.) Created IQuittable object "quitter" and called Quit() method on said object.
+            Employee employee = new Employee { FirstName = "Sample", LastName = "Student", Id = 201 };
+            Employee someGuy = new Employee { FirstName = "Another", LastName = "Employee", Id = 202 };
             IQuittable quitter = new Employee();
-            quitter.Quit(employee);
-
-            employee.SayName();
+            
+            //DRILL p.129 STEP 1 (cont.) Added if/else to test overloaded == operator.
+            if (employee==someGuy)
+            {
+                Console.WriteLine("Selected employees share ID numbers.");
+            }
+            else
+            {
+                Console.WriteLine("Different employees selected: \n" + employee.LastName + " " + employee.Id + "\n" + someGuy.LastName + " " + someGuy.Id);
+            }
             Console.ReadLine();
         }
     }
