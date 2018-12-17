@@ -9,7 +9,6 @@ namespace Interface_App
     //STEP 1.) Created interface "IQuittable" with void method Quit().
     interface IQuittable
     {
-        void Quit();
+        void Quit(Employee employee);
     }
-
 }

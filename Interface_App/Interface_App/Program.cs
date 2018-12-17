@@ -12,6 +12,10 @@ namespace Interface_App
         {
             Employee employee = new Employee { FirstName = "Sample", LastName = "Student" };
 
+            //STEP 3.) Created IQuittable object "quitter" and called Quit() method on said object.
+            IQuittable quitter = new Employee();
+            quitter.Quit(employee);
+
             employee.SayName();
             Console.ReadLine();
         }

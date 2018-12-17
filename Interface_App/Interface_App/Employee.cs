@@ -15,17 +15,9 @@ namespace Interface_App
         }
 
         //STEP 2 (cont.) Implemented Quit() method.
-        void IQuittable.Quit()
+        void IQuittable.Quit(Employee employee)
         {
-            throw new NotImplementedException();
-        }
-
-        //STEP 3.) Created IQuittable object "quitter" and called Quit() method on said object.
-        IQuittable quitter = new Employee();
-
-        void Quit(IQuittable quitter)
-        {
-            throw new NotImplementedException();
+            employee.LastName = employee.LastName + " is a quitter";
         }
     }
 }
